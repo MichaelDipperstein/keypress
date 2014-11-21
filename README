@@ -1,0 +1,63 @@
+DESCRIPTION
+-----------
+This archive contains a simple and readable ANSI C function implementing a POSIX
+compliant method for waiting until a key has been pressed.  The result of the
+key press may optionally be echoed to stdout.
+
+You would think that there would already be a C function to do this.  There kind
+of is.  getchar() will block until stdin receives a char, but stdin in is
+normally associated with a device that does not receive characters until the
+Enter key is pressed.  The keypress() function provided by this archive changes
+the behavior of the device associated with stdin so that the Enter key is not
+required.
+
+FILES
+-----
+COPYING         - Rules for copying and distributing GPL software
+COPYING.LESSER  - Rules for copying and distributing LGPL software
+keypress.c      - File containing the source code for the keypress function
+keypress.h      - Header file used by code calling the keypress function
+Makefile        - makefile for this project (assumes gcc compiler and GNU make)
+README          - this file
+sample.c        - Demonstration of how to use Keypress library functions
+
+BUILDING
+--------
+To build these files with GNU make and gcc, simply enter "make" from the
+command line.  "make clean" will delete the items created by "make".
+
+USAGE
+-----
+Usage: sample (No command line options are supported)
+
+LIBRARY API
+-----------
+The keypress function is defined as follows:
+int keypress(const kp_echo_t echo);
+
+echo
+    Set to KP_ECHO_OFF to prevent the key pressed from being echoed to stdout.
+Return Value
+    The value of the key pressed or EOF.  EOF is returned for End of File or
+    error.  In the event of an error, errno will also be set.
+
+kp_echo_t is defined as follows:
+typedef enum
+{
+    KP_ECHO_OFF,
+    KP_ECHO_ON
+} kp_echo_t;
+
+HISTORY
+-------
+12/03/12  - Original keypress function.
+11/19/14  - Repackaged code into a Library.
+          - Used enum to clearly indicate if echo should be enabled/disabled.
+
+TODO
+----
+- Create a dynamically linked example with less LGPL restrictions.
+
+AUTHOR
+------
+Michael Dipperstein (mdipper@alumni.engr.ucsb.edu)
