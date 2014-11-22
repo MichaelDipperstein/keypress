@@ -29,6 +29,6 @@ keypress.o:	keypress.c keypress.h
 
 clean:
 		rm -f keypress.o
+		rm -f libkeypress.a
 		rm -f sample.o
-		rm -f keypress.a
 		rm -f sample
