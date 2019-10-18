@@ -11,7 +11,7 @@
 *
 * Keypress: A POSIX compliant key press reading function
 * Copyright (C) 2012, 2014 by
-* Michael Dipperstein (mdipper@alumni.engr.ucsb.edu)
+* Michael Dipperstein (mdipperstein@gmail.com)
 *
 * This file is part of the Keypress library.
 *
